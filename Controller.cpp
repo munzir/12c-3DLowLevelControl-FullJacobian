@@ -155,7 +155,7 @@ void Controller::update(const Eigen::Vector3d& _targetPosition) {
   dqFilt->AddSample(dqUnFilt);
   Eigen::VectorXd dq = dqFilt->average;
   double wEER = 0.01, wEEL = 0.01, wSpeedReg = 0.001, wReg = 0.0, wPose = 0.0;
-  Eigen::DiagonalMatrix<double, 3> wBal(1.0, 0.0, 1.0);
+  Eigen::DiagonalMatrix<double, 3> wBal(100.0, 0.0, 1.0);
   double KpxCOM = 750.0, KvxCOM = 250.0;
   double KvSpeedReg = 100; // Speed Reg
   double KpPose = 100.0, KvPose = 200.0;
